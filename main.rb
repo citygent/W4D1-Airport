@@ -2,7 +2,12 @@ require_relative './airport'
 require_relative 'flight'
 require_relative './passenger.rb' # All of these work because Ruby is clever. 
 
-airport = Airport.new('London Heathrow')
+lhr = Airport.new('London Heathrow')
+
+#this doesn't need to be in airport because it's ACCESSING, not changing anything like add_flight was.
+def list_flights airport
+  airport.flights.each_with_index {|flight, index| puts "#{index}: #{flight}"}
+  end
 
 def menu
   puts `clear` #Black Magic!
@@ -28,21 +33,16 @@ while response.downcase != 'q'
     puts 'What is the flight\'s destination?'
     destination = gets.chomp
 
-    puts airport.add_flight(number_of_seats, destination)
+    puts lhr.add_flight(number_of_seats, destination)
     gets
   when '2'  # List flights
     puts 'Here are all the of the flights:'
-    list_flights(airport)
+    list_flights(lhr)
+    gets
   when '3'  # Add a passenger to flight
   when '4'  # List passengers on a flight
   end
 
   response = menu
 
-end
-
-#this doesn't need to be in airport becaue it's ACCESSING, not changing anything like add_flight was.
-def list_flights airport
-  airport.flights.each_with_index {|flight, index| puts "#{index}: #{flight}"}
-  end
 end
