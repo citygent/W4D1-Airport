@@ -9,4 +9,8 @@ attr_accessor :destination, :passengers
     @passengers = []
   end
 
+  def to_s
+    "#{destination} with #{number_of_seats} passengers"
+  end
+
 end

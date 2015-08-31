@@ -28,7 +28,8 @@ while response.downcase != 'q'
     puts 'What is the flight\'s destination?'
     destination = gets.chomp
 
-    airport.add_flight(number_of_seats, destination)
+    puts airport.add_flight(number_of_seats, destination)
+    gets
   when '2'  # List flights
   when '3'  # Add a passenger to flight
   when '4'  # List passengers on a flight
