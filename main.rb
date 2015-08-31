@@ -24,11 +24,11 @@ while response.downcase != 'q'
   case response
   when '1'  # Add a flight
     puts 'How many passengers on this flight?'
-    number_of_passengers = gets.to_i
+    number_of_seats = gets.to_i
     puts 'What is the flight\'s destination?'
     destination = gets.chomp
 
-    add_flight(number_of_passengers, destination)
+    add_flight(number_of_seats, destination)
   when '2'  # List flights
   when '3'  # Add a passenger to flight
   when '4'  # List passengers on a flight
@@ -36,4 +36,8 @@ while response.downcase != 'q'
 
   response = menu
 
+end
+
+def add_flight(number_of_seats, destination)
+  Flight.new(number_of_seats, destination)
 end
