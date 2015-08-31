@@ -9,6 +9,10 @@ def list_flights airport
   airport.flights.each_with_index {|flight, index| puts "#{index}: #{flight}"}
   end
 
+def list_passenger flight
+  flight.passengers.each_with_index { |passenger, index| puts "#{index}: #{passenger.name}"}
+end
+
 def menu
   puts `clear` #Black Magic!
   puts '*' * 52
@@ -54,9 +58,17 @@ while response.downcase != 'q'
     gets
 
   when '4'  # List passengers on a flight
-    # List flightings
+    # List flightings   
+    puts 'What flight do you want to list the passengers from?'
+    list_flights(lhr)
+
     # choose flightings
+    flight_number = gets.to_i
+    flight = lhr.flights[flight_number]
     # loop thru passengers array
+    puts 'The passengers for this flight are: '
+    list_passengers(flight)
+    gets
   end
 
   response = menu
