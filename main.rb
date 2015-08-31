@@ -31,10 +31,18 @@ while response.downcase != 'q'
     puts airport.add_flight(number_of_seats, destination)
     gets
   when '2'  # List flights
+    puts 'Here are all the of the flights:'
+    list_flights(airport)
   when '3'  # Add a passenger to flight
   when '4'  # List passengers on a flight
   end
 
   response = menu
 
+end
+
+#this doesn't need to be in airport becaue it's ACCESSING, not changing anything like add_flight was.
+def list_flights airport
+  airport.flights.each_with_index {|flight, index| puts "#{index}: #{flight}"}
+  end
 end
