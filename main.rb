@@ -1,5 +1,5 @@
 require_relative './airport'
-require_relative 'flight'
+require_relative './flight'
 require_relative './passenger.rb' # All of these work because Ruby is clever. 
 
 lhr = Airport.new('London Heathrow')
@@ -40,7 +40,23 @@ while response.downcase != 'q'
     list_flights(lhr)
     gets
   when '3'  # Add a passenger to flight
+    puts ' What\'s the passengers name?'
+    name = gets.chomp
+    passenger = Passenger.new(name)
+
+    puts "Which flight do you want #{passenger.name} to be added to?"
+    list_flights(lhr) #list flights so it can be selected.
+    flight_number = gets.to_i
+    flight = lhr.flights[flight_number]
+
+    flight.add_passenger(passenger)
+    puts "#{passenger.name} has been added to #{flight}"
+    gets
+
   when '4'  # List passengers on a flight
+    # List flightings
+    # choose flightings
+    # loop thru passengers array
   end
 
   response = menu
