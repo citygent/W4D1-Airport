@@ -8,4 +8,8 @@ attr_accessor :flights
     @flights =[]
   end
 
+  def add_flight(number_of_seats, destination)
+    flights << Flight.new(number_of_seats, destination)
+  end
+
 end

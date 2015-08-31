@@ -37,7 +37,3 @@ while response.downcase != 'q'
   response = menu
 
 end
-
-def add_flight(number_of_seats, destination)
-  Flight.new(number_of_seats, destination)
-end
